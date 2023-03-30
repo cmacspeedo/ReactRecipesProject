@@ -35,10 +35,12 @@ const App = () => {
 
   return (
     <div className="App">
+      <h1 className="title">Mac's Recipe Library</h1>
       <form onSubmit={getSearch} className="search-form">
         <input
           className="search-bar"
           type="text"
+          placeholder="Enter a food to search"
           value={search}
           onChange={updateSearch}
         />
@@ -51,9 +53,11 @@ const App = () => {
           <Recipe
             key={recipe.recipe.label}
             title={recipe.recipe.label}
-            calories={recipe.recipe.calories}
+            calories={Math.round(recipe.recipe.calories)}
             image={recipe.recipe.image}
             ingredients={recipe.recipe.ingredients}
+            servings={recipe.recipe.yield}
+            website={recipe.recipe.url}
           />
         ))}
       </div>
